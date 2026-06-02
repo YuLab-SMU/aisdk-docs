@@ -11,7 +11,7 @@ execute:
 website:
   title: "aisdk"
   description: "A production-grade AI toolkit for R — the aisdk family of packages."
-  site-url: "https://yulab-smu.github.io/aisdk-docs/"
+  site-url: "https://yulab-smu.top/aisdk-docs/"
   repo-url: "https://github.com/YuLab-SMU/aisdk-docs"
   repo-actions: [issue]
   page-navigation: true

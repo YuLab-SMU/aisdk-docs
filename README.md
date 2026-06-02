@@ -4,7 +4,7 @@ Documentation portal for the **aisdk** family of R packages — a unified
 [Quarto](https://quarto.org) website that introduces the family and links to
 each package.
 
-🌐 **Site:** <https://yulab-smu.github.io/aisdk-docs/>
+🌐 **Site:** <https://yulab-smu.top/aisdk-docs/>
 
 ## Packages covered
 

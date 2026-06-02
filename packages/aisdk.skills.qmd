@@ -1,0 +1,26 @@
+---
+title: "aisdk.skills"
+subtitle: "Skill Authoring, Store, and Bundled Skill Pack"
+---
+
+Skill-ecosystem tooling and content for `aisdk`: scaffolding helpers for
+authoring new skills, a global skill **store** for sharing and installing
+skills, skill-forge authoring tools, and a bundled pack of ready-to-use skills.
+On load it registers its bundled skill directory with the core skill registry,
+so the core skill-loading runtime stays free of this content.
+
+- **Status:** development (GitHub)
+- **Source:** [github.com/YuLab-SMU/aisdk.skills](https://github.com/YuLab-SMU/aisdk.skills)
+
+## Install
+
+```r
+# install.packages("pak")
+pak::pak("YuLab-SMU/aisdk.skills")
+```
+
+## Highlights
+
+- Author new skills with scaffolding helpers and skill-forge tools.
+- A global skill store for sharing and installing skills.
+- A bundled pack of ready-to-use skills, registered with the core on load.

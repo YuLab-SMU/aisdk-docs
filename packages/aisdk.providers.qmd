@@ -1,0 +1,30 @@
+---
+title: "aisdk.providers"
+subtitle: "Additional Model Provider Adapters"
+---
+
+Long-tail, OpenAI-compatible and Anthropic-compatible provider adapters for the
+core `aisdk` toolkit. Providers register themselves with the core provider
+registry on load, so they are resolvable through the `provider:model` syntax.
+
+Covers **DeepSeek**, **Moonshot/Kimi**, **Stepfun**, **Volcengine**,
+**AiHubMix**, **xAI**, **OpenRouter**, **Bailian**, and **NVIDIA**.
+
+- **Status:** CRAN submission in progress
+- **Source:** [github.com/YuLab-SMU/aisdk.providers](https://github.com/YuLab-SMU/aisdk.providers)
+
+## Install
+
+```r
+install.packages("aisdk.providers")
+# dev: pak::pak("YuLab-SMU/aisdk.providers")
+```
+
+## Example
+
+```r
+library(aisdk.providers)   # registers deepseek, kimi, xai, ... on load
+
+chat <- create_chat_session("deepseek:deepseek-chat")
+generate_text(chat, "Hello from DeepSeek!")
+```

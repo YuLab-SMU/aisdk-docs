@@ -1,0 +1,24 @@
+---
+title: "aisdk.channels"
+subtitle: "Messaging Channel Integrations"
+---
+
+A channel runtime and adapters that connect `aisdk` agents to instant-messaging
+platforms (such as **Feishu/Lark**), including webhook handling, event
+processing, per-conversation session stores, and document ingestion.
+
+- **Status:** development (GitHub)
+- **Source:** [github.com/YuLab-SMU/aisdk.channels](https://github.com/YuLab-SMU/aisdk.channels)
+
+## Install
+
+```r
+# install.packages("pak")
+pak::pak("YuLab-SMU/aisdk.channels")
+```
+
+## Highlights
+
+- Channel runtime with platform adapters (e.g. Feishu/Lark).
+- Webhook handling and event processing.
+- Per-conversation session stores and document ingestion.

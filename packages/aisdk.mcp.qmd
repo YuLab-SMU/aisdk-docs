@@ -1,0 +1,25 @@
+---
+title: "aisdk.mcp"
+subtitle: "Model Context Protocol (MCP) Client and Server"
+---
+
+Model Context Protocol support for `aisdk`: a **client** for connecting to and
+using tools from local (stdio) or remote (SSE) MCP servers, a **server** for
+exposing R functions as MCP tools, and discovery helpers. Lets `aisdk` agents
+interoperate with the wider MCP ecosystem.
+
+- **Status:** development (GitHub)
+- **Source:** [github.com/YuLab-SMU/aisdk.mcp](https://github.com/YuLab-SMU/aisdk.mcp)
+
+## Install
+
+```r
+# install.packages("pak")
+pak::pak("YuLab-SMU/aisdk.mcp")
+```
+
+## Highlights
+
+- Connect to stdio and SSE MCP servers and call their tools from an agent.
+- Expose your own R functions as MCP tools.
+- Server discovery helpers.

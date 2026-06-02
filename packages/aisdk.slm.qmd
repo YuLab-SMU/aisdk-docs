@@ -1,0 +1,25 @@
+---
+title: "aisdk.slm"
+subtitle: "Local Small Language Model Inference"
+---
+
+A self-contained engine for running **local** small language models: quantized
+**GGUF** models and **ONNX**/**torch** models on local hardware, plus model
+discovery and weight downloading. Designed to plug into the `aisdk` ecosystem
+while remaining usable on its own.
+
+- **Status:** development (GitHub)
+- **Source:** [github.com/YuLab-SMU/aisdk.slm](https://github.com/YuLab-SMU/aisdk.slm)
+
+## Install
+
+```r
+# install.packages("pak")
+pak::pak("YuLab-SMU/aisdk.slm")
+```
+
+## Highlights
+
+- Run quantized GGUF models locally.
+- ONNX / torch model backends.
+- Model discovery and downloading into a local cache.

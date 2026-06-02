@@ -1,0 +1,25 @@
+---
+title: "aisdk.shiny"
+subtitle: "Shiny Web Interface"
+---
+
+A Shiny-based web chat interface and configuration UI for `aisdk`. Provides
+ready-to-use Shiny modules and a server runtime for interactive, streaming
+conversations with AI models, including a model-configuration panel and an
+optional `shinychat` backend.
+
+- **Status:** development (GitHub)
+- **Source:** [github.com/YuLab-SMU/aisdk.shiny](https://github.com/YuLab-SMU/aisdk.shiny)
+
+## Install
+
+```r
+# install.packages("pak")
+pak::pak("YuLab-SMU/aisdk.shiny")
+```
+
+## Highlights
+
+- Ready-to-use Shiny modules for streaming chat.
+- A model-configuration panel.
+- Optional `shinychat` backend.

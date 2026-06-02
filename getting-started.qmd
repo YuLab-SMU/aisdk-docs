@@ -1,0 +1,71 @@
+---
+title: "Get started"
+---
+
+## Install
+
+The core package is on CRAN:
+
+```r
+install.packages("aisdk")
+```
+
+Companion packages are installed only when you need their capabilities. Once
+they are on CRAN you will be able to:
+
+```r
+install.packages("aisdk.providers")     # extra provider adapters
+install.packages("aisdk.orchestration")  # multi-agent Flow / Team / Mission
+install.packages("aisdk.mcp")            # Model Context Protocol
+install.packages("aisdk.skills")         # skill ecosystem
+install.packages("aisdk.channels")       # messaging integrations
+install.packages("aisdk.datatools")      # charts & reports
+install.packages("aisdk.shiny")          # Shiny web UI
+install.packages("aisdk.slm")            # local model inference
+```
+
+Development versions live under [github.com/YuLab-SMU](https://github.com/YuLab-SMU):
+
+```r
+# install.packages("pak")
+pak::pak("YuLab-SMU/aisdk")
+pak::pak("YuLab-SMU/aisdk.providers")
+```
+
+## Configure a provider
+
+Most providers read their API key from an environment variable. For the core
+OpenAI/Anthropic/Gemini providers:
+
+```r
+Sys.setenv(OPENAI_API_KEY = "sk-...")
+```
+
+## A first conversation
+
+```r
+library(aisdk)
+
+chat <- create_chat_session("openai:gpt-4o")
+generate_text(chat, "Give me three ideas for a talk on R and LLMs.")
+```
+
+## Add providers without changing your code
+
+Companion packages register themselves with the core registry on load, so the
+`provider:model` syntax just works once the package is installed:
+
+```r
+library(aisdk.providers)   # registers deepseek, kimi, xai, ... on load
+generate_text(create_chat_session("deepseek:deepseek-chat"), "Hello!")
+```
+
+If you ask for a provider that lives in a companion package you have not
+installed yet, the core will tell you exactly which package to install (and, in
+an interactive session, offer to install it for you).
+
+## Where to next
+
+- Browse each package from the **Packages** menu above.
+- Start with the [**aisdk** core](packages/aisdk.qmd) for the unified
+  interface, agents, tools, and skills.

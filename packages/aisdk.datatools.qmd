@@ -1,0 +1,26 @@
+---
+title: "aisdk.datatools"
+subtitle: "Charting and Reporting Tools"
+---
+
+Heavy-dependency charting and reporting tools for `aisdk`: a structured
+**ggplot2** chart schema and renderer, a **knitr**-based AI reporting engine,
+and artifact generation. The package registers a ggplot JSON coercion handler
+with the core serializer on load, so `aisdk` stays free of ggplot2/knitr
+dependencies unless this package is used.
+
+- **Status:** development (GitHub)
+- **Source:** [github.com/YuLab-SMU/aisdk.datatools](https://github.com/YuLab-SMU/aisdk.datatools)
+
+## Install
+
+```r
+# install.packages("pak")
+pak::pak("YuLab-SMU/aisdk.datatools")
+```
+
+## Highlights
+
+- Structured ggplot2 chart schema and renderer.
+- knitr-based AI reporting engine and artifact generation.
+- ggplot JSON coercion registered with the core serializer on load.

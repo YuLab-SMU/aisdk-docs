@@ -1,0 +1,24 @@
+---
+title: "aisdk.orchestration"
+subtitle: "Multi-Agent Orchestration (Flow, Team, Mission)"
+---
+
+A multi-agent orchestration layer built on the core single-agent execution
+engine.
+
+- **Status:** development (GitHub)
+- **Source:** [github.com/YuLab-SMU/aisdk.orchestration](https://github.com/YuLab-SMU/aisdk.orchestration)
+
+## Install
+
+```r
+# install.packages("pak")
+pak::pak("YuLab-SMU/aisdk.orchestration")
+```
+
+## Highlights
+
+- **Flow** — delegation tracing, guardrails, and depth limits.
+- **AgentTeam** — Manager–Worker coordination.
+- **Mission** — global leadership layer with planning, DAG dependencies,
+  concurrent scheduling, retries, and checkpointing.

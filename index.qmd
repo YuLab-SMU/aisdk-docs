@@ -1,0 +1,67 @@
+---
+title: "aisdk"
+subtitle: "A production-grade AI toolkit for R"
+toc: false
+---
+
+**aisdk** is a unified, layered AI toolkit for R. The self-contained core
+package exposes a single `provider:model` interface over many AI providers,
+plus agent / tool / skill base classes and robust request machinery. A family
+of companion packages extends that core with extra providers, multi-agent
+orchestration, the Model Context Protocol, a skill ecosystem, messaging
+channels, charting/reporting, a Shiny web UI, and local model inference — each
+opt-in, so the core stays lean.
+
+```r
+# Install the core from CRAN
+install.packages("aisdk")
+
+library(aisdk)
+chat <- create_chat_session("openai:gpt-4o")
+generate_text(chat, "Summarise the tidyverse in one sentence.")
+```
+
+## The family
+
+### Core
+
+| Package | What it does |
+|---|---|
+| [**aisdk**](packages/aisdk.qmd) | Self-contained core: unified `provider:model` interface, agent/tool/skill base classes, request/retry machinery, and an interactive console. |
+
+### Providers & local inference
+
+| Package | What it does |
+|---|---|
+| [**aisdk.providers**](packages/aisdk.providers.qmd) | Long-tail OpenAI-/Anthropic-compatible provider adapters: DeepSeek, Moonshot/Kimi, Stepfun, Volcengine, AiHubMix, xAI, OpenRouter, Bailian, NVIDIA. |
+| [**aisdk.slm**](packages/aisdk.slm.qmd) | Local small language model inference: quantized GGUF and ONNX/torch models on local hardware, with model discovery and downloading. |
+
+### Agents & orchestration
+
+| Package | What it does |
+|---|---|
+| [**aisdk.orchestration**](packages/aisdk.orchestration.qmd) | Multi-agent layer: Flow (delegation tracing, guardrails), AgentTeam (Manager–Worker), and the Mission system (planning, DAG scheduling, retries, checkpointing). |
+
+### Tools & ecosystem
+
+| Package | What it does |
+|---|---|
+| [**aisdk.mcp**](packages/aisdk.mcp.qmd) | Model Context Protocol client and server: use tools from stdio/SSE MCP servers, and expose R functions as MCP tools. |
+| [**aisdk.skills**](packages/aisdk.skills.qmd) | Skill authoring, a global skill store, skill-forge tools, and a bundled pack of ready-to-use skills. |
+
+### Integrations & I/O
+
+| Package | What it does |
+|---|---|
+| [**aisdk.channels**](packages/aisdk.channels.qmd) | Messaging-channel runtime and adapters (e.g. Feishu/Lark): webhooks, event processing, per-conversation sessions, document ingestion. |
+| [**aisdk.datatools**](packages/aisdk.datatools.qmd) | Heavy-dependency charting and reporting: a ggplot2 chart schema/renderer and a knitr-based AI reporting engine. |
+| [**aisdk.shiny**](packages/aisdk.shiny.qmd) | Shiny web chat interface and model-configuration UI for interactive, streaming conversations. |
+
+## Design
+
+The core (`aisdk`) is deliberately self-contained and the only package that
+needs to be on CRAN for the basics to work. Everything else **registers
+itself with the core on load** — providers into the provider registry, skills
+into the skill registry, the ggplot coercion handler into the serializer — so
+heavy or optional dependencies never reach the core unless you actually install
+the companion. See [Get started](getting-started.qmd) for the typical setup.

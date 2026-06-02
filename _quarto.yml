@@ -1,0 +1,88 @@
+project:
+  type: website
+  output-dir: docs
+
+# The portal pages are descriptive (no live R execution), so CI needs only
+# Quarto -- no R toolchain. Example code is shown in plain ```r blocks that
+# Quarto highlights but does not run.
+execute:
+  enabled: false
+
+website:
+  title: "aisdk"
+  description: "A production-grade AI toolkit for R — the aisdk family of packages."
+  site-url: "https://yulab-smu.github.io/aisdk-docs/"
+  repo-url: "https://github.com/YuLab-SMU/aisdk-docs"
+  repo-actions: [issue]
+  page-navigation: true
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Get started"
+        file: getting-started.qmd
+      - text: "Packages"
+        menu:
+          - text: "aisdk — core"
+            file: packages/aisdk.qmd
+          - text: "---"
+          - text: "aisdk.providers — provider adapters"
+            file: packages/aisdk.providers.qmd
+          - text: "aisdk.slm — local inference"
+            file: packages/aisdk.slm.qmd
+          - text: "---"
+          - text: "aisdk.orchestration — multi-agent"
+            file: packages/aisdk.orchestration.qmd
+          - text: "aisdk.mcp — MCP client/server"
+            file: packages/aisdk.mcp.qmd
+          - text: "aisdk.skills — skill ecosystem"
+            file: packages/aisdk.skills.qmd
+          - text: "---"
+          - text: "aisdk.channels — messaging"
+            file: packages/aisdk.channels.qmd
+          - text: "aisdk.datatools — charts & reports"
+            file: packages/aisdk.datatools.qmd
+          - text: "aisdk.shiny — web UI"
+            file: packages/aisdk.shiny.qmd
+    right:
+      - icon: github
+        href: https://github.com/YuLab-SMU/aisdk
+        aria-label: GitHub
+  sidebar:
+    style: floating
+    contents:
+      - section: "Overview"
+        contents:
+          - index.qmd
+          - getting-started.qmd
+      - section: "Core"
+        contents:
+          - packages/aisdk.qmd
+      - section: "Providers & inference"
+        contents:
+          - packages/aisdk.providers.qmd
+          - packages/aisdk.slm.qmd
+      - section: "Agents & orchestration"
+        contents:
+          - packages/aisdk.orchestration.qmd
+      - section: "Tools & ecosystem"
+        contents:
+          - packages/aisdk.mcp.qmd
+          - packages/aisdk.skills.qmd
+      - section: "Integrations & I/O"
+        contents:
+          - packages/aisdk.channels.qmd
+          - packages/aisdk.datatools.qmd
+          - packages/aisdk.shiny.qmd
+  page-footer:
+    left: "© 2026 Yonghe Xia · YuLab-SMU"
+    right: "Built with [Quarto](https://quarto.org)."
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-copy: true
+    code-overflow: wrap

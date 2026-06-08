@@ -354,7 +354,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install" id="toc-install" class="nav-link active" data-scroll-target="#install">Install</a></li>
+  <li><a href="#install" id="toc-install" class="nav-link active" data-scroll-target="#install">Install</a>
+  <ul class="collapse">
+  <li><a href="#just-the-core" id="toc-just-the-core" class="nav-link" data-scroll-target="#just-the-core">Just the core</a></li>
+  <li><a href="#only-what-you-need" id="toc-only-what-you-need" class="nav-link" data-scroll-target="#only-what-you-need">Only what you need</a></li>
+  </ul></li>
   <li><a href="#configure-a-provider" id="toc-configure-a-provider" class="nav-link" data-scroll-target="#configure-a-provider">Configure a provider</a></li>
   <li><a href="#a-first-conversation" id="toc-a-first-conversation" class="nav-link" data-scroll-target="#a-first-conversation">A first conversation</a></li>
   <li><a href="#add-providers-without-changing-your-code" id="toc-add-providers-without-changing-your-code" class="nav-link" data-scroll-target="#add-providers-without-changing-your-code">Add providers without changing your code</a></li>
@@ -386,21 +390,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="install" class="level2">
 <h2 class="anchored" data-anchor-id="install">Install</h2>
-<p>The core package is on CRAN:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"aisdk"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Companion packages are installed only when you need their capabilities. Once they are on CRAN you will be able to:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"aisdk.providers"</span>)     <span class="co"># extra provider adapters</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"aisdk.orchestration"</span>)  <span class="co"># multi-agent Flow / Team / Mission</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"aisdk.mcp"</span>)            <span class="co"># Model Context Protocol</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"aisdk.skills"</span>)         <span class="co"># skill ecosystem</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"aisdk.channels"</span>)       <span class="co"># messaging integrations</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"aisdk.datatools"</span>)      <span class="co"># charts &amp; reports</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"aisdk.shiny"</span>)          <span class="co"># Shiny web UI</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"aisdk.slm"</span>)            <span class="co"># local model inference</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Development versions live under <a href="https://github.com/YuLab-SMU">github.com/YuLab-SMU</a>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("pak")</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">"YuLab-SMU/aisdk"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">"YuLab-SMU/aisdk.providers"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The whole family installs from GitHub in one step with <a href="https://pak.r-lib.org/">pak</a>. <strong>This is the recommended path today</strong> — you get the latest version of every package, and you never have to track which capability lives in which package.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("pak")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="fu">c</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"YuLab-SMU/aisdk"</span>,                <span class="co"># core</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"YuLab-SMU/aisdk.providers"</span>,      <span class="co"># extra provider adapters</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"YuLab-SMU/aisdk.slm"</span>,            <span class="co"># local model inference</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"YuLab-SMU/aisdk.orchestration"</span>,  <span class="co"># multi-agent Flow / Team / Mission</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"YuLab-SMU/aisdk.mcp"</span>,            <span class="co"># Model Context Protocol</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"YuLab-SMU/aisdk.skills"</span>,         <span class="co"># skill ecosystem</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"YuLab-SMU/aisdk.channels"</span>,       <span class="co"># messaging integrations</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"YuLab-SMU/aisdk.datatools"</span>,      <span class="co"># charts &amp; reports</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"YuLab-SMU/aisdk.shiny"</span>           <span class="co"># Shiny web UI</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="just-the-core" class="level3">
+<h3 class="anchored" data-anchor-id="just-the-core">Just the core</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">"YuLab-SMU/aisdk"</span>)     <span class="co"># or, from CRAN: install.packages("aisdk")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="only-what-you-need" class="level3">
+<h3 class="anchored" data-anchor-id="only-what-you-need">Only what you need</h3>
+<p>Each companion declares the core as a dependency, so installing any one of them pulls in <code>aisdk</code> automatically — no need to install the core first:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">"YuLab-SMU/aisdk.orchestration"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>CRAN status
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The core <code>aisdk</code> is on CRAN. The companion packages are being submitted to CRAN one at a time, so <code>install.packages()</code> does not cover them all yet. Until they have all landed, install the family from GitHub as above — the commands stay the same regardless of how far the CRAN rollout has progressed.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="configure-a-provider" class="level2">
 <h2 class="anchored" data-anchor-id="configure-a-provider">Configure a provider</h2>

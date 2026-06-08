@@ -4,33 +4,48 @@ title: "Get started"
 
 ## Install
 
-The core package is on CRAN:
-
-```r
-install.packages("aisdk")
-```
-
-Companion packages are installed only when you need their capabilities. Once
-they are on CRAN you will be able to:
-
-```r
-install.packages("aisdk.providers")     # extra provider adapters
-install.packages("aisdk.orchestration")  # multi-agent Flow / Team / Mission
-install.packages("aisdk.mcp")            # Model Context Protocol
-install.packages("aisdk.skills")         # skill ecosystem
-install.packages("aisdk.channels")       # messaging integrations
-install.packages("aisdk.datatools")      # charts & reports
-install.packages("aisdk.shiny")          # Shiny web UI
-install.packages("aisdk.slm")            # local model inference
-```
-
-Development versions live under [github.com/YuLab-SMU](https://github.com/YuLab-SMU):
+The whole family installs from GitHub in one step with
+[pak](https://pak.r-lib.org/). **This is the recommended path today** — you get
+the latest version of every package, and you never have to track which
+capability lives in which package.
 
 ```r
 # install.packages("pak")
-pak::pak("YuLab-SMU/aisdk")
-pak::pak("YuLab-SMU/aisdk.providers")
+pak::pak(c(
+  "YuLab-SMU/aisdk",                # core
+  "YuLab-SMU/aisdk.providers",      # extra provider adapters
+  "YuLab-SMU/aisdk.slm",            # local model inference
+  "YuLab-SMU/aisdk.orchestration",  # multi-agent Flow / Team / Mission
+  "YuLab-SMU/aisdk.mcp",            # Model Context Protocol
+  "YuLab-SMU/aisdk.skills",         # skill ecosystem
+  "YuLab-SMU/aisdk.channels",       # messaging integrations
+  "YuLab-SMU/aisdk.datatools",      # charts & reports
+  "YuLab-SMU/aisdk.shiny"           # Shiny web UI
+))
 ```
+
+### Just the core
+
+```r
+pak::pak("YuLab-SMU/aisdk")     # or, from CRAN: install.packages("aisdk")
+```
+
+### Only what you need
+
+Each companion declares the core as a dependency, so installing any one of them
+pulls in `aisdk` automatically — no need to install the core first:
+
+```r
+pak::pak("YuLab-SMU/aisdk.orchestration")
+```
+
+::: {.callout-note}
+## CRAN status
+The core `aisdk` is on CRAN. The companion packages are being submitted to CRAN
+one at a time, so `install.packages()` does not cover them all yet. Until they
+have all landed, install the family from GitHub as above — the commands stay the
+same regardless of how far the CRAN rollout has progressed.
+:::
 
 ## Configure a provider
 

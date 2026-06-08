@@ -16,8 +16,9 @@ Covers **DeepSeek**, **Moonshot/Kimi**, **Stepfun**, **Volcengine**,
 ## Install
 
 ```r
-install.packages("aisdk.providers")
-# dev: pak::pak("YuLab-SMU/aisdk.providers")
+# install.packages("pak")
+pak::pak("YuLab-SMU/aisdk.providers")   # pulls in the core aisdk automatically
+# once on CRAN: install.packages("aisdk.providers")
 ```
 
 ## Example

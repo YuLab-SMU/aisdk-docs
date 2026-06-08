@@ -13,13 +13,17 @@ channels, charting/reporting, a Shiny web UI, and local model inference — each
 opt-in, so the core stays lean.
 
 ```r
-# Install the core from CRAN
-install.packages("aisdk")
+# Install the family from GitHub (recommended while the companion packages
+# make their way onto CRAN). install.packages("pak") first if you need it.
+pak::pak("YuLab-SMU/aisdk")   # core only; see "Get started" for the full family
 
 library(aisdk)
 chat <- create_chat_session("openai:gpt-4o")
 generate_text(chat, "Summarise the tidyverse in one sentence.")
 ```
+
+See [**Get started**](getting-started.qmd) for a one-step install of the whole
+family.
 
 ## The family
 

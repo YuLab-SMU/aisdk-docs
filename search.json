@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "aisdk",
     "section": "",
-    "text": "aisdk is a unified, layered AI toolkit for R. The self-contained core package exposes a single provider:model interface over many AI providers, plus agent / tool / skill base classes and robust request machinery. A family of companion packages extends that core with extra providers, multi-agent orchestration, the Model Context Protocol, a skill ecosystem, messaging channels, charting/reporting, a Shiny web UI, and local model inference — each opt-in, so the core stays lean.\nSee Get started for a one-step install of the whole family.",
+    "text": "aisdk is a unified, layered AI toolkit for R. The self-contained core package exposes a single provider:model interface over many AI providers, plus agent / tool / skill base classes and robust request machinery. A family of companion packages extends that core with extra providers, multi-agent orchestration, the Model Context Protocol, a skill ecosystem, messaging channels, charting/reporting, a Shiny web UI, an interactive terminal console, and local model inference — each opt-in, so the core stays lean.\nSee Get started for a one-step install of the whole family.",
     "crumbs": [
       "Home",
       "Overview",
@@ -16,7 +16,7 @@
     "href": "index.html#the-family",
     "title": "aisdk",
     "section": "The family",
-    "text": "The family\n\nCore\n\n\n\nPackage\nWhat it does\n\n\n\n\naisdk\nSelf-contained core: unified provider:model interface, agent/tool/skill base classes, request/retry machinery, and an interactive console.\n\n\n\n\n\nProviders & local inference\n\n\n\nPackage\nWhat it does\n\n\n\n\naisdk.providers\nLong-tail OpenAI-/Anthropic-compatible provider adapters: DeepSeek, Moonshot/Kimi, Stepfun, Volcengine, AiHubMix, xAI, OpenRouter, Bailian, NVIDIA.\n\n\naisdk.slm\nLocal small language model inference: quantized GGUF and ONNX/torch models on local hardware, with model discovery and downloading.\n\n\n\n\n\nAgents & orchestration\n\n\n\nPackage\nWhat it does\n\n\n\n\naisdk.orchestration\nMulti-agent layer: Flow (delegation tracing, guardrails), AgentTeam (Manager–Worker), and the Mission system (planning, DAG scheduling, retries, checkpointing).\n\n\n\n\n\nTools & ecosystem\n\n\n\nPackage\nWhat it does\n\n\n\n\naisdk.mcp\nModel Context Protocol client and server: use tools from stdio/SSE MCP servers, and expose R functions as MCP tools.\n\n\naisdk.skills\nSkill authoring, a global skill store, skill-forge tools, and a bundled pack of ready-to-use skills.\n\n\n\n\n\nIntegrations & I/O\n\n\n\nPackage\nWhat it does\n\n\n\n\naisdk.channels\nMessaging-channel runtime and adapters (e.g. Feishu/Lark): webhooks, event processing, per-conversation sessions, document ingestion.\n\n\naisdk.datatools\nHeavy-dependency charting and reporting: a ggplot2 chart schema/renderer and a knitr-based AI reporting engine.\n\n\naisdk.shiny\nShiny web chat interface and model-configuration UI for interactive, streaming conversations.",
+    "text": "The family\n\nCore\n\n\n\nPackage\nWhat it does\n\n\n\n\naisdk\nSelf-contained core: unified provider:model interface, agent/tool/skill base classes, request/retry machinery, and the shared model-setup and session-persistence layer used by every front end.\n\n\n\n\n\nProviders & local inference\n\n\n\nPackage\nWhat it does\n\n\n\n\naisdk.providers\nLong-tail OpenAI-/Anthropic-compatible provider adapters: DeepSeek, Moonshot/Kimi, Stepfun, Volcengine, AiHubMix, xAI, OpenRouter, Bailian, NVIDIA.\n\n\naisdk.slm\nLocal small language model inference: quantized GGUF and ONNX/torch models on local hardware, with model discovery and downloading.\n\n\n\n\n\nAgents & orchestration\n\n\n\nPackage\nWhat it does\n\n\n\n\naisdk.orchestration\nMulti-agent layer: Flow (delegation tracing, guardrails), AgentTeam (Manager–Worker), and the Mission system (planning, DAG scheduling, retries, checkpointing).\n\n\n\n\n\nTools & ecosystem\n\n\n\nPackage\nWhat it does\n\n\n\n\naisdk.mcp\nModel Context Protocol client and server: use tools from stdio/SSE MCP servers, and expose R functions as MCP tools.\n\n\naisdk.skills\nSkill authoring, a global skill store, skill-forge tools, and a bundled pack of ready-to-use skills.\n\n\n\n\n\nIntegrations & I/O\n\n\n\nPackage\nWhat it does\n\n\n\n\naisdk.channels\nMessaging-channel runtime and adapters (e.g. Feishu/Lark): webhooks, event processing, per-conversation sessions, document ingestion.\n\n\naisdk.datatools\nHeavy-dependency charting and reporting: a ggplot2 chart schema/renderer and a knitr-based AI reporting engine.\n\n\naisdk.shiny\nShiny web chat interface and model-configuration UI for interactive, streaming conversations.\n\n\naisdk.console\nInteractive terminal chat console: the console_chat() REPL with slash commands, inspector overlay, session branching, and the built-in terminal agent.",
     "crumbs": [
       "Home",
       "Overview",
@@ -33,126 +33,6 @@
       "Home",
       "Overview",
       "aisdk"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.html",
-    "href": "packages/aisdk.html",
-    "title": "aisdk",
-    "section": "",
-    "text": "The self-contained core of the family. A production-grade AI toolkit for R with a layered architecture (Specification, Utilities, Providers, Core), request interception, and robust error handling with exponential retry. It ships the unified provider:model interface, the agent / tool / skill base classes, the request/retry machinery, and an interactive console.",
-    "crumbs": [
-      "Home",
-      "Core",
-      "aisdk"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.html#install",
-    "href": "packages/aisdk.html#install",
-    "title": "aisdk",
-    "section": "Install",
-    "text": "Install\ninstall.packages(\"aisdk\")",
-    "crumbs": [
-      "Home",
-      "Core",
-      "aisdk"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.html#highlights",
-    "href": "packages/aisdk.html#highlights",
-    "title": "aisdk",
-    "section": "Highlights",
-    "text": "Highlights\n\nOne interface over many providers via provider:model (e.g. openai:gpt-4o, anthropic:claude-..., gemini:...).\ncreate_chat_session(), generate_text(), stream_text().\nAgent / Tool / Skill base classes and a provider registry that companion packages extend on load.\nBuilt-in interactive console (console_chat()) and ask_ai().",
-    "crumbs": [
-      "Home",
-      "Core",
-      "aisdk"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.html#example",
-    "href": "packages/aisdk.html#example",
-    "title": "aisdk",
-    "section": "Example",
-    "text": "Example\nlibrary(aisdk)\n\nchat &lt;- create_chat_session(\"openai:gpt-4o\")\ngenerate_text(chat, \"Explain retry-with-backoff in one paragraph.\")",
-    "crumbs": [
-      "Home",
-      "Core",
-      "aisdk"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.skills.html",
-    "href": "packages/aisdk.skills.html",
-    "title": "aisdk.skills",
-    "section": "",
-    "text": "Skill-ecosystem tooling and content for aisdk: scaffolding helpers for authoring new skills, a global skill store for sharing and installing skills, skill-forge authoring tools, and a bundled pack of ready-to-use skills. On load it registers its bundled skill directory with the core skill registry, so the core skill-loading runtime stays free of this content.",
-    "crumbs": [
-      "Home",
-      "Tools & ecosystem",
-      "aisdk.skills"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.skills.html#install",
-    "href": "packages/aisdk.skills.html#install",
-    "title": "aisdk.skills",
-    "section": "Install",
-    "text": "Install\n# install.packages(\"pak\")\npak::pak(\"YuLab-SMU/aisdk.skills\")",
-    "crumbs": [
-      "Home",
-      "Tools & ecosystem",
-      "aisdk.skills"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.skills.html#highlights",
-    "href": "packages/aisdk.skills.html#highlights",
-    "title": "aisdk.skills",
-    "section": "Highlights",
-    "text": "Highlights\n\nAuthor new skills with scaffolding helpers and skill-forge tools.\nA global skill store for sharing and installing skills.\nA bundled pack of ready-to-use skills, registered with the core on load.",
-    "crumbs": [
-      "Home",
-      "Tools & ecosystem",
-      "aisdk.skills"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.providers.html",
-    "href": "packages/aisdk.providers.html",
-    "title": "aisdk.providers",
-    "section": "",
-    "text": "Long-tail, OpenAI-compatible and Anthropic-compatible provider adapters for the core aisdk toolkit. Providers register themselves with the core provider registry on load, so they are resolvable through the provider:model syntax.\nCovers DeepSeek, Moonshot/Kimi, Stepfun, Volcengine, AiHubMix, xAI, OpenRouter, Bailian, and NVIDIA.",
-    "crumbs": [
-      "Home",
-      "Providers & inference",
-      "aisdk.providers"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.providers.html#install",
-    "href": "packages/aisdk.providers.html#install",
-    "title": "aisdk.providers",
-    "section": "Install",
-    "text": "Install\n# install.packages(\"pak\")\npak::pak(\"YuLab-SMU/aisdk.providers\")   # pulls in the core aisdk automatically\n# once on CRAN: install.packages(\"aisdk.providers\")",
-    "crumbs": [
-      "Home",
-      "Providers & inference",
-      "aisdk.providers"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.providers.html#example",
-    "href": "packages/aisdk.providers.html#example",
-    "title": "aisdk.providers",
-    "section": "Example",
-    "text": "Example\nlibrary(aisdk.providers)   # registers deepseek, kimi, xai, ... on load\n\nchat &lt;- create_chat_session(\"deepseek:deepseek-chat\")\ngenerate_text(chat, \"Hello from DeepSeek!\")",
-    "crumbs": [
-      "Home",
-      "Providers & inference",
-      "aisdk.providers"
     ]
   },
   {
@@ -192,42 +72,6 @@
     ]
   },
   {
-    "objectID": "packages/aisdk.orchestration.html",
-    "href": "packages/aisdk.orchestration.html",
-    "title": "aisdk.orchestration",
-    "section": "",
-    "text": "A multi-agent orchestration layer built on the core single-agent execution engine.",
-    "crumbs": [
-      "Home",
-      "Agents & orchestration",
-      "aisdk.orchestration"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.orchestration.html#install",
-    "href": "packages/aisdk.orchestration.html#install",
-    "title": "aisdk.orchestration",
-    "section": "Install",
-    "text": "Install\n# install.packages(\"pak\")\npak::pak(\"YuLab-SMU/aisdk.orchestration\")",
-    "crumbs": [
-      "Home",
-      "Agents & orchestration",
-      "aisdk.orchestration"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.orchestration.html#highlights",
-    "href": "packages/aisdk.orchestration.html#highlights",
-    "title": "aisdk.orchestration",
-    "section": "Highlights",
-    "text": "Highlights\n\nFlow — delegation tracing, guardrails, and depth limits.\nAgentTeam — Manager–Worker coordination.\nMission — global leadership layer with planning, DAG dependencies, concurrent scheduling, retries, and checkpointing.",
-    "crumbs": [
-      "Home",
-      "Agents & orchestration",
-      "aisdk.orchestration"
-    ]
-  },
-  {
     "objectID": "packages/aisdk.slm.html",
     "href": "packages/aisdk.slm.html",
     "title": "aisdk.slm",
@@ -261,78 +105,6 @@
       "Home",
       "Providers & inference",
       "aisdk.slm"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.shiny.html",
-    "href": "packages/aisdk.shiny.html",
-    "title": "aisdk.shiny",
-    "section": "",
-    "text": "A Shiny-based web chat interface and configuration UI for aisdk. Provides ready-to-use Shiny modules and a server runtime for interactive, streaming conversations with AI models, including a model-configuration panel and an optional shinychat backend.",
-    "crumbs": [
-      "Home",
-      "Integrations & I/O",
-      "aisdk.shiny"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.shiny.html#install",
-    "href": "packages/aisdk.shiny.html#install",
-    "title": "aisdk.shiny",
-    "section": "Install",
-    "text": "Install\n# install.packages(\"pak\")\npak::pak(\"YuLab-SMU/aisdk.shiny\")",
-    "crumbs": [
-      "Home",
-      "Integrations & I/O",
-      "aisdk.shiny"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.shiny.html#highlights",
-    "href": "packages/aisdk.shiny.html#highlights",
-    "title": "aisdk.shiny",
-    "section": "Highlights",
-    "text": "Highlights\n\nReady-to-use Shiny modules for streaming chat.\nA model-configuration panel.\nOptional shinychat backend.",
-    "crumbs": [
-      "Home",
-      "Integrations & I/O",
-      "aisdk.shiny"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.channels.html",
-    "href": "packages/aisdk.channels.html",
-    "title": "aisdk.channels",
-    "section": "",
-    "text": "A channel runtime and adapters that connect aisdk agents to instant-messaging platforms (such as Feishu/Lark), including webhook handling, event processing, per-conversation session stores, and document ingestion.",
-    "crumbs": [
-      "Home",
-      "Integrations & I/O",
-      "aisdk.channels"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.channels.html#install",
-    "href": "packages/aisdk.channels.html#install",
-    "title": "aisdk.channels",
-    "section": "Install",
-    "text": "Install\n# install.packages(\"pak\")\npak::pak(\"YuLab-SMU/aisdk.channels\")",
-    "crumbs": [
-      "Home",
-      "Integrations & I/O",
-      "aisdk.channels"
-    ]
-  },
-  {
-    "objectID": "packages/aisdk.channels.html#highlights",
-    "href": "packages/aisdk.channels.html#highlights",
-    "title": "aisdk.channels",
-    "section": "Highlights",
-    "text": "Highlights\n\nChannel runtime with platform adapters (e.g. Feishu/Lark).\nWebhook handling and event processing.\nPer-conversation session stores and document ingestion.",
-    "crumbs": [
-      "Home",
-      "Integrations & I/O",
-      "aisdk.channels"
     ]
   },
   {
@@ -372,11 +144,287 @@
     ]
   },
   {
+    "objectID": "packages/aisdk.html",
+    "href": "packages/aisdk.html",
+    "title": "aisdk",
+    "section": "",
+    "text": "The self-contained core of the family. A production-grade AI toolkit for R with a layered architecture (Specification, Utilities, Providers, Core), request interception, and robust error handling with exponential retry. It ships the unified provider:model interface, the agent / tool / skill base classes, the request/retry machinery, and the shared model-setup and session-persistence layer that the family’s front ends build on.",
+    "crumbs": [
+      "Home",
+      "Core",
+      "aisdk"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.html#install",
+    "href": "packages/aisdk.html#install",
+    "title": "aisdk",
+    "section": "Install",
+    "text": "Install\ninstall.packages(\"aisdk\")",
+    "crumbs": [
+      "Home",
+      "Core",
+      "aisdk"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.html#highlights",
+    "href": "packages/aisdk.html#highlights",
+    "title": "aisdk",
+    "section": "Highlights",
+    "text": "Highlights\n\nOne interface over many providers via provider:model (e.g. openai:gpt-4o, anthropic:claude-..., gemini:...).\ncreate_chat_session(), generate_text(), stream_text().\nAgent / Tool / Skill base classes and a provider registry that companion packages extend on load.\nask_ai() error-context assistant; the interactive terminal REPL lives in aisdk.console (since aisdk 1.5.0) and is offered for install on first use.",
+    "crumbs": [
+      "Home",
+      "Core",
+      "aisdk"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.html#example",
+    "href": "packages/aisdk.html#example",
+    "title": "aisdk",
+    "section": "Example",
+    "text": "Example\nlibrary(aisdk)\n\nchat &lt;- create_chat_session(\"openai:gpt-4o\")\ngenerate_text(chat, \"Explain retry-with-backoff in one paragraph.\")",
+    "crumbs": [
+      "Home",
+      "Core",
+      "aisdk"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.channels.html",
+    "href": "packages/aisdk.channels.html",
+    "title": "aisdk.channels",
+    "section": "",
+    "text": "A channel runtime and adapters that connect aisdk agents to instant-messaging platforms (such as Feishu/Lark), including webhook handling, event processing, per-conversation session stores, and document ingestion.",
+    "crumbs": [
+      "Home",
+      "Integrations & I/O",
+      "aisdk.channels"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.channels.html#install",
+    "href": "packages/aisdk.channels.html#install",
+    "title": "aisdk.channels",
+    "section": "Install",
+    "text": "Install\n# install.packages(\"pak\")\npak::pak(\"YuLab-SMU/aisdk.channels\")",
+    "crumbs": [
+      "Home",
+      "Integrations & I/O",
+      "aisdk.channels"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.channels.html#highlights",
+    "href": "packages/aisdk.channels.html#highlights",
+    "title": "aisdk.channels",
+    "section": "Highlights",
+    "text": "Highlights\n\nChannel runtime with platform adapters (e.g. Feishu/Lark).\nWebhook handling and event processing.\nPer-conversation session stores and document ingestion.",
+    "crumbs": [
+      "Home",
+      "Integrations & I/O",
+      "aisdk.channels"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.shiny.html",
+    "href": "packages/aisdk.shiny.html",
+    "title": "aisdk.shiny",
+    "section": "",
+    "text": "A Shiny-based web chat interface and configuration UI for aisdk. Provides ready-to-use Shiny modules and a server runtime for interactive, streaming conversations with AI models, including a model-configuration panel and an optional shinychat backend.",
+    "crumbs": [
+      "Home",
+      "Integrations & I/O",
+      "aisdk.shiny"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.shiny.html#install",
+    "href": "packages/aisdk.shiny.html#install",
+    "title": "aisdk.shiny",
+    "section": "Install",
+    "text": "Install\n# install.packages(\"pak\")\npak::pak(\"YuLab-SMU/aisdk.shiny\")",
+    "crumbs": [
+      "Home",
+      "Integrations & I/O",
+      "aisdk.shiny"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.shiny.html#highlights",
+    "href": "packages/aisdk.shiny.html#highlights",
+    "title": "aisdk.shiny",
+    "section": "Highlights",
+    "text": "Highlights\n\nReady-to-use Shiny modules for streaming chat.\nA model-configuration panel.\nOptional shinychat backend.",
+    "crumbs": [
+      "Home",
+      "Integrations & I/O",
+      "aisdk.shiny"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.orchestration.html",
+    "href": "packages/aisdk.orchestration.html",
+    "title": "aisdk.orchestration",
+    "section": "",
+    "text": "A multi-agent orchestration layer built on the core single-agent execution engine.",
+    "crumbs": [
+      "Home",
+      "Agents & orchestration",
+      "aisdk.orchestration"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.orchestration.html#install",
+    "href": "packages/aisdk.orchestration.html#install",
+    "title": "aisdk.orchestration",
+    "section": "Install",
+    "text": "Install\n# install.packages(\"pak\")\npak::pak(\"YuLab-SMU/aisdk.orchestration\")",
+    "crumbs": [
+      "Home",
+      "Agents & orchestration",
+      "aisdk.orchestration"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.orchestration.html#highlights",
+    "href": "packages/aisdk.orchestration.html#highlights",
+    "title": "aisdk.orchestration",
+    "section": "Highlights",
+    "text": "Highlights\n\nFlow — delegation tracing, guardrails, and depth limits.\nAgentTeam — Manager–Worker coordination.\nMission — global leadership layer with planning, DAG dependencies, concurrent scheduling, retries, and checkpointing.",
+    "crumbs": [
+      "Home",
+      "Agents & orchestration",
+      "aisdk.orchestration"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.skills.html",
+    "href": "packages/aisdk.skills.html",
+    "title": "aisdk.skills",
+    "section": "",
+    "text": "Skill-ecosystem tooling and content for aisdk: scaffolding helpers for authoring new skills, a global skill store for sharing and installing skills, skill-forge authoring tools, and a bundled pack of ready-to-use skills. On load it registers its bundled skill directory with the core skill registry, so the core skill-loading runtime stays free of this content.",
+    "crumbs": [
+      "Home",
+      "Tools & ecosystem",
+      "aisdk.skills"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.skills.html#install",
+    "href": "packages/aisdk.skills.html#install",
+    "title": "aisdk.skills",
+    "section": "Install",
+    "text": "Install\n# install.packages(\"pak\")\npak::pak(\"YuLab-SMU/aisdk.skills\")",
+    "crumbs": [
+      "Home",
+      "Tools & ecosystem",
+      "aisdk.skills"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.skills.html#highlights",
+    "href": "packages/aisdk.skills.html#highlights",
+    "title": "aisdk.skills",
+    "section": "Highlights",
+    "text": "Highlights\n\nAuthor new skills with scaffolding helpers and skill-forge tools.\nA global skill store for sharing and installing skills.\nA bundled pack of ready-to-use skills, registered with the core on load.",
+    "crumbs": [
+      "Home",
+      "Tools & ecosystem",
+      "aisdk.skills"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.console.html",
+    "href": "packages/aisdk.console.html",
+    "title": "aisdk.console",
+    "section": "",
+    "text": "The terminal front end of the family, extracted from the core in aisdk 1.5.0. An interactive REPL (console_chat()) over the core ChatSession execution engine, with streaming output, slash commands, an inspector overlay with per-turn tool timelines, paste and clipboard-image handling, session branching, evolving personas, a project extension runtime, and the built-in terminal agent (shell, file, and R tools in the aisdk sandbox).",
+    "crumbs": [
+      "Home",
+      "Integrations & I/O",
+      "aisdk.console"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.console.html#install",
+    "href": "packages/aisdk.console.html#install",
+    "title": "aisdk.console",
+    "section": "Install",
+    "text": "Install\n# install.packages(\"pak\")\npak::pak(\"YuLab-SMU/aisdk.console\")",
+    "crumbs": [
+      "Home",
+      "Integrations & I/O",
+      "aisdk.console"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.console.html#highlights",
+    "href": "packages/aisdk.console.html#highlights",
+    "title": "aisdk.console",
+    "section": "Highlights",
+    "text": "Highlights\n\nconsole_chat() REPL with streaming replies and slash commands (/model, /inspect, /fork, /reset, …).\nThree view modes (clean, inspect, debug), a persistent status bar, per-turn tool timelines, and an overlay-backed inspector.\nBuilt-in terminal agent (create_console_agent() / create_console_tools()): shell, file, and R tools running in the aisdk sandbox, with minimal and legacy profiles.\nSession event log and conversation branching backed by the core session_* API; project-local extensions under .aisdk/extensions/.\naisdk::ask_ai() (and the RStudio addin) opens this console with the collected error context, offering to install the package when missing.",
+    "crumbs": [
+      "Home",
+      "Integrations & I/O",
+      "aisdk.console"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.console.html#example",
+    "href": "packages/aisdk.console.html#example",
+    "title": "aisdk.console",
+    "section": "Example",
+    "text": "Example\nlibrary(aisdk.console)\n\n# Default intelligent terminal agent\nconsole_chat(\"openai:gpt-4o\")\n\n# Simple chat without tools\nconsole_chat(\"openai:gpt-4o\", agent = NULL)\n\n# Continue an existing core session\nchat &lt;- aisdk::create_chat_session(\"anthropic:claude-3-5-sonnet-latest\")\nconsole_chat(chat)",
+    "crumbs": [
+      "Home",
+      "Integrations & I/O",
+      "aisdk.console"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.providers.html",
+    "href": "packages/aisdk.providers.html",
+    "title": "aisdk.providers",
+    "section": "",
+    "text": "Long-tail, OpenAI-compatible and Anthropic-compatible provider adapters for the core aisdk toolkit. Providers register themselves with the core provider registry on load, so they are resolvable through the provider:model syntax.\nCovers DeepSeek, Moonshot/Kimi, Stepfun, Volcengine, AiHubMix, xAI, OpenRouter, Bailian, and NVIDIA.",
+    "crumbs": [
+      "Home",
+      "Providers & inference",
+      "aisdk.providers"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.providers.html#install",
+    "href": "packages/aisdk.providers.html#install",
+    "title": "aisdk.providers",
+    "section": "Install",
+    "text": "Install\n# install.packages(\"pak\")\npak::pak(\"YuLab-SMU/aisdk.providers\")   # pulls in the core aisdk automatically\n# once on CRAN: install.packages(\"aisdk.providers\")",
+    "crumbs": [
+      "Home",
+      "Providers & inference",
+      "aisdk.providers"
+    ]
+  },
+  {
+    "objectID": "packages/aisdk.providers.html#example",
+    "href": "packages/aisdk.providers.html#example",
+    "title": "aisdk.providers",
+    "section": "Example",
+    "text": "Example\nlibrary(aisdk.providers)   # registers deepseek, kimi, xai, ... on load\n\nchat &lt;- create_chat_session(\"deepseek:deepseek-chat\")\ngenerate_text(chat, \"Hello from DeepSeek!\")",
+    "crumbs": [
+      "Home",
+      "Providers & inference",
+      "aisdk.providers"
+    ]
+  },
+  {
     "objectID": "getting-started.html",
     "href": "getting-started.html",
     "title": "Get started",
     "section": "",
-    "text": "The whole family installs from GitHub in one step with pak. This is the recommended path today — you get the latest version of every package, and you never have to track which capability lives in which package.\n# install.packages(\"pak\")\npak::pak(c(\n  \"YuLab-SMU/aisdk\",                # core\n  \"YuLab-SMU/aisdk.providers\",      # extra provider adapters\n  \"YuLab-SMU/aisdk.slm\",            # local model inference\n  \"YuLab-SMU/aisdk.orchestration\",  # multi-agent Flow / Team / Mission\n  \"YuLab-SMU/aisdk.mcp\",            # Model Context Protocol\n  \"YuLab-SMU/aisdk.skills\",         # skill ecosystem\n  \"YuLab-SMU/aisdk.channels\",       # messaging integrations\n  \"YuLab-SMU/aisdk.datatools\",      # charts & reports\n  \"YuLab-SMU/aisdk.shiny\"           # Shiny web UI\n))\n\n\npak::pak(\"YuLab-SMU/aisdk\")     # or, from CRAN: install.packages(\"aisdk\")\n\n\n\nEach companion declares the core as a dependency, so installing any one of them pulls in aisdk automatically — no need to install the core first:\npak::pak(\"YuLab-SMU/aisdk.orchestration\")\n\n\n\n\n\n\nNoteCRAN status\n\n\n\nThe core aisdk is on CRAN. The companion packages are being submitted to CRAN one at a time, so install.packages() does not cover them all yet. Until they have all landed, install the family from GitHub as above — the commands stay the same regardless of how far the CRAN rollout has progressed.",
+    "text": "The whole family installs from GitHub in one step with pak. This is the recommended path today — you get the latest version of every package, and you never have to track which capability lives in which package.\n# install.packages(\"pak\")\npak::pak(c(\n  \"YuLab-SMU/aisdk\",                # core\n  \"YuLab-SMU/aisdk.providers\",      # extra provider adapters\n  \"YuLab-SMU/aisdk.slm\",            # local model inference\n  \"YuLab-SMU/aisdk.orchestration\",  # multi-agent Flow / Team / Mission\n  \"YuLab-SMU/aisdk.mcp\",            # Model Context Protocol\n  \"YuLab-SMU/aisdk.skills\",         # skill ecosystem\n  \"YuLab-SMU/aisdk.channels\",       # messaging integrations\n  \"YuLab-SMU/aisdk.datatools\",      # charts & reports\n  \"YuLab-SMU/aisdk.shiny\",          # Shiny web UI\n  \"YuLab-SMU/aisdk.console\"         # interactive terminal console\n))\n\n\npak::pak(\"YuLab-SMU/aisdk\")     # or, from CRAN: install.packages(\"aisdk\")\n\n\n\nEach companion declares the core as a dependency, so installing any one of them pulls in aisdk automatically — no need to install the core first:\npak::pak(\"YuLab-SMU/aisdk.orchestration\")\n\n\n\n\n\n\nNoteCRAN status\n\n\n\nThe core aisdk is on CRAN. The companion packages are being submitted to CRAN one at a time, so install.packages() does not cover them all yet. Until they have all landed, install the family from GitHub as above — the commands stay the same regardless of how far the CRAN rollout has progressed.",
     "crumbs": [
       "Home",
       "Overview",
@@ -388,7 +436,7 @@
     "href": "getting-started.html#install",
     "title": "Get started",
     "section": "",
-    "text": "The whole family installs from GitHub in one step with pak. This is the recommended path today — you get the latest version of every package, and you never have to track which capability lives in which package.\n# install.packages(\"pak\")\npak::pak(c(\n  \"YuLab-SMU/aisdk\",                # core\n  \"YuLab-SMU/aisdk.providers\",      # extra provider adapters\n  \"YuLab-SMU/aisdk.slm\",            # local model inference\n  \"YuLab-SMU/aisdk.orchestration\",  # multi-agent Flow / Team / Mission\n  \"YuLab-SMU/aisdk.mcp\",            # Model Context Protocol\n  \"YuLab-SMU/aisdk.skills\",         # skill ecosystem\n  \"YuLab-SMU/aisdk.channels\",       # messaging integrations\n  \"YuLab-SMU/aisdk.datatools\",      # charts & reports\n  \"YuLab-SMU/aisdk.shiny\"           # Shiny web UI\n))\n\n\npak::pak(\"YuLab-SMU/aisdk\")     # or, from CRAN: install.packages(\"aisdk\")\n\n\n\nEach companion declares the core as a dependency, so installing any one of them pulls in aisdk automatically — no need to install the core first:\npak::pak(\"YuLab-SMU/aisdk.orchestration\")\n\n\n\n\n\n\nNoteCRAN status\n\n\n\nThe core aisdk is on CRAN. The companion packages are being submitted to CRAN one at a time, so install.packages() does not cover them all yet. Until they have all landed, install the family from GitHub as above — the commands stay the same regardless of how far the CRAN rollout has progressed.",
+    "text": "The whole family installs from GitHub in one step with pak. This is the recommended path today — you get the latest version of every package, and you never have to track which capability lives in which package.\n# install.packages(\"pak\")\npak::pak(c(\n  \"YuLab-SMU/aisdk\",                # core\n  \"YuLab-SMU/aisdk.providers\",      # extra provider adapters\n  \"YuLab-SMU/aisdk.slm\",            # local model inference\n  \"YuLab-SMU/aisdk.orchestration\",  # multi-agent Flow / Team / Mission\n  \"YuLab-SMU/aisdk.mcp\",            # Model Context Protocol\n  \"YuLab-SMU/aisdk.skills\",         # skill ecosystem\n  \"YuLab-SMU/aisdk.channels\",       # messaging integrations\n  \"YuLab-SMU/aisdk.datatools\",      # charts & reports\n  \"YuLab-SMU/aisdk.shiny\",          # Shiny web UI\n  \"YuLab-SMU/aisdk.console\"         # interactive terminal console\n))\n\n\npak::pak(\"YuLab-SMU/aisdk\")     # or, from CRAN: install.packages(\"aisdk\")\n\n\n\nEach companion declares the core as a dependency, so installing any one of them pulls in aisdk automatically — no need to install the core first:\npak::pak(\"YuLab-SMU/aisdk.orchestration\")\n\n\n\n\n\n\nNoteCRAN status\n\n\n\nThe core aisdk is on CRAN. The companion packages are being submitted to CRAN one at a time, so install.packages() does not cover them all yet. Until they have all landed, install the family from GitHub as above — the commands stay the same regardless of how far the CRAN rollout has progressed.",
     "crumbs": [
       "Home",
       "Overview",

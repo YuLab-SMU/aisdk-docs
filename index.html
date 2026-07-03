@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9aaadcc7bd3a96854312fb3be6956d5f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e16872440047994247dd28c82fe9c6b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -178,6 +178,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="./packages/aisdk.shiny.html">
  <span class="dropdown-text">aisdk.shiny — web UI</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./packages/aisdk.console.html">
+ <span class="dropdown-text">aisdk.console — terminal UI</span></a>
   </li>  
     </ul>
   </li>
@@ -341,6 +345,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">aisdk.shiny</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./packages/aisdk.console.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">aisdk.console</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -372,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>aisdk</strong> is a unified, layered AI toolkit for R. The self-contained core package exposes a single <code>provider:model</code> interface over many AI providers, plus agent / tool / skill base classes and robust request machinery. A family of companion packages extends that core with extra providers, multi-agent orchestration, the Model Context Protocol, a skill ecosystem, messaging channels, charting/reporting, a Shiny web UI, and local model inference — each opt-in, so the core stays lean.</p>
+<p><strong>aisdk</strong> is a unified, layered AI toolkit for R. The self-contained core package exposes a single <code>provider:model</code> interface over many AI providers, plus agent / tool / skill base classes and robust request machinery. A family of companion packages extends that core with extra providers, multi-agent orchestration, the Model Context Protocol, a skill ecosystem, messaging channels, charting/reporting, a Shiny web UI, an interactive terminal console, and local model inference — each opt-in, so the core stays lean.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the family from GitHub (recommended while the companion packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># make their way onto CRAN). install.packages("pak") first if you need it.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">"YuLab-SMU/aisdk"</span>)   <span class="co"># core only; see "Get started" for the full family</span></span>
@@ -395,7 +405,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td><a href="./packages/aisdk.html"><strong>aisdk</strong></a></td>
-<td>Self-contained core: unified <code>provider:model</code> interface, agent/tool/skill base classes, request/retry machinery, and an interactive console.</td>
+<td>Self-contained core: unified <code>provider:model</code> interface, agent/tool/skill base classes, request/retry machinery, and the shared model-setup and session-persistence layer used by every front end.</td>
 </tr>
 </tbody>
 </table>
@@ -480,6 +490,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td><a href="./packages/aisdk.shiny.html"><strong>aisdk.shiny</strong></a></td>
 <td>Shiny web chat interface and model-configuration UI for interactive, streaming conversations.</td>
+</tr>
+<tr class="even">
+<td><a href="./packages/aisdk.console.html"><strong>aisdk.console</strong></a></td>
+<td>Interactive terminal chat console: the <code>console_chat()</code> REPL with slash commands, inspector overlay, session branching, and the built-in terminal agent.</td>
 </tr>
 </tbody>
 </table>

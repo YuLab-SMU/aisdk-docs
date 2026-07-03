@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>aisdk.skills – aisdk</title>
+<title>aisdk.console – aisdk</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,8 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../packages/aisdk.channels.html" rel="next">
-<link href="../packages/aisdk.mcp.html" rel="prev">
+<link href="../packages/aisdk.shiny.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -204,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../packages/aisdk.mcp.html">Tools &amp; ecosystem</a></li><li class="breadcrumb-item"><a href="../packages/aisdk.skills.html">aisdk.skills</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../packages/aisdk.channels.html">Integrations &amp; I/O</a></li><li class="breadcrumb-item"><a href="../packages/aisdk.console.html">aisdk.console</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -313,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../packages/aisdk.skills.html" class="sidebar-item-text sidebar-link active">
+  <a href="../packages/aisdk.skills.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">aisdk.skills</span></a>
   </div>
 </li>
@@ -348,7 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../packages/aisdk.console.html" class="sidebar-item-text sidebar-link">
+  <a href="../packages/aisdk.console.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">aisdk.console</span></a>
   </div>
 </li>
@@ -366,16 +365,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#install" id="toc-install" class="nav-link active" data-scroll-target="#install">Install</a></li>
   <li><a href="#highlights" id="toc-highlights" class="nav-link" data-scroll-target="#highlights">Highlights</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/YuLab-SMU/aisdk-docs/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../packages/aisdk.mcp.html">Tools &amp; ecosystem</a></li><li class="breadcrumb-item"><a href="../packages/aisdk.skills.html">aisdk.skills</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../packages/aisdk.channels.html">Integrations &amp; I/O</a></li><li class="breadcrumb-item"><a href="../packages/aisdk.console.html">aisdk.console</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">aisdk.skills</h1>
-<p class="subtitle lead">Skill Authoring, Store, and Bundled Skill Pack</p>
+<h1 class="title">aisdk.console</h1>
+<p class="subtitle lead">Interactive Terminal Chat Console</p>
 </div>
 
 
@@ -392,23 +392,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Skill-ecosystem tooling and content for <code>aisdk</code>: scaffolding helpers for authoring new skills, a global skill <strong>store</strong> for sharing and installing skills, skill-forge authoring tools, and a bundled pack of ready-to-use skills. On load it registers its bundled skill directory with the core skill registry, so the core skill-loading runtime stays free of this content.</p>
+<p>The terminal front end of the family, extracted from the core in aisdk 1.5.0. An interactive REPL (<code>console_chat()</code>) over the core <code>ChatSession</code> execution engine, with streaming output, slash commands, an inspector overlay with per-turn tool timelines, paste and clipboard-image handling, session branching, evolving personas, a project extension runtime, and the built-in terminal agent (shell, file, and R tools in the aisdk sandbox).</p>
 <ul>
 <li><strong>Status:</strong> development (GitHub)</li>
-<li><strong>Source:</strong> <a href="https://github.com/YuLab-SMU/aisdk.skills">github.com/YuLab-SMU/aisdk.skills</a></li>
+<li><strong>Source:</strong> <a href="https://github.com/YuLab-SMU/aisdk.console">github.com/YuLab-SMU/aisdk.console</a></li>
 </ul>
 <section id="install" class="level2">
 <h2 class="anchored" data-anchor-id="install">Install</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("pak")</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">"YuLab-SMU/aisdk.skills"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">"YuLab-SMU/aisdk.console"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="highlights" class="level2">
 <h2 class="anchored" data-anchor-id="highlights">Highlights</h2>
 <ul>
-<li>Author new skills with scaffolding helpers and skill-forge tools.</li>
-<li>A global skill store for sharing and installing skills.</li>
-<li>A bundled pack of ready-to-use skills, registered with the core on load.</li>
+<li><code>console_chat()</code> REPL with streaming replies and slash commands (<code>/model</code>, <code>/inspect</code>, <code>/fork</code>, <code>/reset</code>, …).</li>
+<li>Three view modes (<code>clean</code>, <code>inspect</code>, <code>debug</code>), a persistent status bar, per-turn tool timelines, and an overlay-backed inspector.</li>
+<li>Built-in terminal agent (<code>create_console_agent()</code> / <code>create_console_tools()</code>): shell, file, and R tools running in the aisdk sandbox, with minimal and legacy profiles.</li>
+<li>Session event log and conversation branching backed by the core <code>session_*</code> API; project-local extensions under <code>.aisdk/extensions/</code>.</li>
+<li><code>aisdk::ask_ai()</code> (and the RStudio addin) opens this console with the collected error context, offering to install the package when missing.</li>
 </ul>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(aisdk.console)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Default intelligent terminal agent</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">console_chat</span>(<span class="st">"openai:gpt-4o"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple chat without tools</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">console_chat</span>(<span class="st">"openai:gpt-4o"</span>, <span class="at">agent =</span> <span class="cn">NULL</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Continue an existing core session</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> aisdk<span class="sc">::</span><span class="fu">create_chat_session</span>(<span class="st">"anthropic:claude-3-5-sonnet-latest"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">console_chat</span>(chat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -816,14 +832,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../packages/aisdk.mcp.html" class="pagination-link" aria-label="aisdk.mcp">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">aisdk.mcp</span>
+      <a href="../packages/aisdk.shiny.html" class="pagination-link" aria-label="aisdk.shiny">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">aisdk.shiny</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../packages/aisdk.channels.html" class="pagination-link" aria-label="aisdk.channels">
-        <span class="nav-page-text">aisdk.channels</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

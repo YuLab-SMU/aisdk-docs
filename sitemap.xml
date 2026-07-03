@@ -2,46 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://yulab-smu.top/aisdk-docs/index.html</loc>
-    <lastmod>2026-06-08T03:08:35.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.html</loc>
-    <lastmod>2026-06-08T03:08:35.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.skills.html</loc>
-    <lastmod>2026-06-08T03:08:35.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.providers.html</loc>
-    <lastmod>2026-06-08T03:08:35.011Z</lastmod>
+    <lastmod>2026-07-03T21:39:46.441Z</lastmod>
   </url>
   <url>
     <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.datatools.html</loc>
-    <lastmod>2026-06-08T03:08:35.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.orchestration.html</loc>
-    <lastmod>2026-06-08T03:08:35.011Z</lastmod>
+    <lastmod>2026-07-03T21:39:46.442Z</lastmod>
   </url>
   <url>
     <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.slm.html</loc>
-    <lastmod>2026-06-08T03:08:35.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.shiny.html</loc>
-    <lastmod>2026-06-08T03:08:35.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.channels.html</loc>
-    <lastmod>2026-06-08T03:08:35.011Z</lastmod>
+    <lastmod>2026-07-03T21:39:46.442Z</lastmod>
   </url>
   <url>
     <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.mcp.html</loc>
-    <lastmod>2026-06-08T03:08:35.011Z</lastmod>
+    <lastmod>2026-07-03T21:39:46.442Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.html</loc>
+    <lastmod>2026-07-03T21:39:46.442Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.channels.html</loc>
+    <lastmod>2026-07-03T21:39:46.441Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.shiny.html</loc>
+    <lastmod>2026-07-03T21:39:46.442Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.orchestration.html</loc>
+    <lastmod>2026-07-03T21:39:46.442Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.skills.html</loc>
+    <lastmod>2026-07-03T21:39:46.442Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.console.html</loc>
+    <lastmod>2026-07-03T21:39:46.442Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yulab-smu.top/aisdk-docs/packages/aisdk.providers.html</loc>
+    <lastmod>2026-07-03T21:39:46.442Z</lastmod>
   </url>
   <url>
     <loc>https://yulab-smu.top/aisdk-docs/getting-started.html</loc>
-    <lastmod>2026-06-08T03:08:35.011Z</lastmod>
+    <lastmod>2026-07-03T21:39:46.441Z</lastmod>
   </url>
 </urlset>

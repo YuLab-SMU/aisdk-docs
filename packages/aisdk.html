@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9aaadcc7bd3a96854312fb3be6956d5f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e16872440047994247dd28c82fe9c6b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -179,6 +179,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../packages/aisdk.shiny.html">
  <span class="dropdown-text">aisdk.shiny — web UI</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../packages/aisdk.console.html">
+ <span class="dropdown-text">aisdk.console — terminal UI</span></a>
   </li>  
     </ul>
   </li>
@@ -342,6 +346,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">aisdk.shiny</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../packages/aisdk.console.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">aisdk.console</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -383,7 +393,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The self-contained <strong>core</strong> of the family. A production-grade AI toolkit for R with a layered architecture (Specification, Utilities, Providers, Core), request interception, and robust error handling with exponential retry. It ships the unified <code>provider:model</code> interface, the agent / tool / skill base classes, the request/retry machinery, and an interactive console.</p>
+<p>The self-contained <strong>core</strong> of the family. A production-grade AI toolkit for R with a layered architecture (Specification, Utilities, Providers, Core), request interception, and robust error handling with exponential retry. It ships the unified <code>provider:model</code> interface, the agent / tool / skill base classes, the request/retry machinery, and the shared model-setup and session-persistence layer that the family’s front ends build on.</p>
 <ul>
 <li><strong>Status:</strong> on CRAN</li>
 <li><strong>Source:</strong> <a href="https://github.com/YuLab-SMU/aisdk">github.com/YuLab-SMU/aisdk</a></li>
@@ -398,7 +408,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>One interface over many providers via <code>provider:model</code> (e.g.&nbsp;<code>openai:gpt-4o</code>, <code>anthropic:claude-...</code>, <code>gemini:...</code>).</li>
 <li><code>create_chat_session()</code>, <code>generate_text()</code>, <code>stream_text()</code>.</li>
 <li>Agent / Tool / Skill base classes and a provider registry that companion packages extend on load.</li>
-<li>Built-in interactive console (<code>console_chat()</code>) and <code>ask_ai()</code>.</li>
+<li><code>ask_ai()</code> error-context assistant; the interactive terminal REPL lives in <a href="../packages/aisdk.console.html">aisdk.console</a> (since aisdk 1.5.0) and is offered for install on first use.</li>
 </ul>
 </section>
 <section id="example" class="level2">

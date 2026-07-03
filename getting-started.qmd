@@ -20,7 +20,8 @@ pak::pak(c(
   "YuLab-SMU/aisdk.skills",         # skill ecosystem
   "YuLab-SMU/aisdk.channels",       # messaging integrations
   "YuLab-SMU/aisdk.datatools",      # charts & reports
-  "YuLab-SMU/aisdk.shiny"           # Shiny web UI
+  "YuLab-SMU/aisdk.shiny",          # Shiny web UI
+  "YuLab-SMU/aisdk.console"         # interactive terminal console
 ))
 ```
 

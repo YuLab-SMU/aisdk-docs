@@ -1,0 +1,52 @@
+---
+title: "aisdk.console"
+subtitle: "Interactive Terminal Chat Console"
+---
+
+The terminal front end of the family, extracted from the core in
+aisdk 1.5.0. An interactive REPL (`console_chat()`) over the core
+`ChatSession` execution engine, with streaming output, slash commands, an
+inspector overlay with per-turn tool timelines, paste and clipboard-image
+handling, session branching, evolving personas, a project extension runtime,
+and the built-in terminal agent (shell, file, and R tools in the aisdk
+sandbox).
+
+- **Status:** development (GitHub)
+- **Source:** [github.com/YuLab-SMU/aisdk.console](https://github.com/YuLab-SMU/aisdk.console)
+
+## Install
+
+```r
+# install.packages("pak")
+pak::pak("YuLab-SMU/aisdk.console")
+```
+
+## Highlights
+
+- `console_chat()` REPL with streaming replies and slash commands
+  (`/model`, `/inspect`, `/fork`, `/reset`, ...).
+- Three view modes (`clean`, `inspect`, `debug`), a persistent status bar,
+  per-turn tool timelines, and an overlay-backed inspector.
+- Built-in terminal agent (`create_console_agent()` /
+  `create_console_tools()`): shell, file, and R tools running in the aisdk
+  sandbox, with minimal and legacy profiles.
+- Session event log and conversation branching backed by the core
+  `session_*` API; project-local extensions under `.aisdk/extensions/`.
+- `aisdk::ask_ai()` (and the RStudio addin) opens this console with the
+  collected error context, offering to install the package when missing.
+
+## Example
+
+```r
+library(aisdk.console)
+
+# Default intelligent terminal agent
+console_chat("openai:gpt-4o")
+
+# Simple chat without tools
+console_chat("openai:gpt-4o", agent = NULL)
+
+# Continue an existing core session
+chat <- aisdk::create_chat_session("anthropic:claude-3-5-sonnet-latest")
+console_chat(chat)
+```

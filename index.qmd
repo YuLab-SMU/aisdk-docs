@@ -9,8 +9,8 @@ package exposes a single `provider:model` interface over many AI providers,
 plus agent / tool / skill base classes and robust request machinery. A family
 of companion packages extends that core with extra providers, multi-agent
 orchestration, the Model Context Protocol, a skill ecosystem, messaging
-channels, charting/reporting, a Shiny web UI, and local model inference — each
-opt-in, so the core stays lean.
+channels, charting/reporting, a Shiny web UI, an interactive terminal
+console, and local model inference — each opt-in, so the core stays lean.
 
 ```r
 # Install the family from GitHub (recommended while the companion packages
@@ -31,7 +31,7 @@ family.
 
 | Package | What it does |
 |---|---|
-| [**aisdk**](packages/aisdk.qmd) | Self-contained core: unified `provider:model` interface, agent/tool/skill base classes, request/retry machinery, and an interactive console. |
+| [**aisdk**](packages/aisdk.qmd) | Self-contained core: unified `provider:model` interface, agent/tool/skill base classes, request/retry machinery, and the shared model-setup and session-persistence layer used by every front end. |
 
 ### Providers & local inference
 
@@ -60,6 +60,7 @@ family.
 | [**aisdk.channels**](packages/aisdk.channels.qmd) | Messaging-channel runtime and adapters (e.g. Feishu/Lark): webhooks, event processing, per-conversation sessions, document ingestion. |
 | [**aisdk.datatools**](packages/aisdk.datatools.qmd) | Heavy-dependency charting and reporting: a ggplot2 chart schema/renderer and a knitr-based AI reporting engine. |
 | [**aisdk.shiny**](packages/aisdk.shiny.qmd) | Shiny web chat interface and model-configuration UI for interactive, streaming conversations. |
+| [**aisdk.console**](packages/aisdk.console.qmd) | Interactive terminal chat console: the `console_chat()` REPL with slash commands, inspector overlay, session branching, and the built-in terminal agent. |
 
 ## Design
 

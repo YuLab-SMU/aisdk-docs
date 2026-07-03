@@ -7,7 +7,8 @@ The self-contained **core** of the family. A production-grade AI toolkit for R
 with a layered architecture (Specification, Utilities, Providers, Core),
 request interception, and robust error handling with exponential retry. It
 ships the unified `provider:model` interface, the agent / tool / skill base
-classes, the request/retry machinery, and an interactive console.
+classes, the request/retry machinery, and the shared model-setup and
+session-persistence layer that the family's front ends build on.
 
 - **Status:** on CRAN
 - **Source:** [github.com/YuLab-SMU/aisdk](https://github.com/YuLab-SMU/aisdk)
@@ -25,7 +26,9 @@ install.packages("aisdk")
 - `create_chat_session()`, `generate_text()`, `stream_text()`.
 - Agent / Tool / Skill base classes and a provider registry that companion
   packages extend on load.
-- Built-in interactive console (`console_chat()`) and `ask_ai()`.
+- `ask_ai()` error-context assistant; the interactive terminal REPL lives in
+  [aisdk.console](aisdk.console.qmd) (since aisdk 1.5.0) and is offered for
+  install on first use.
 
 ## Example
 

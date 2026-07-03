@@ -46,6 +46,8 @@ website:
             file: packages/aisdk.datatools.qmd
           - text: "aisdk.shiny — web UI"
             file: packages/aisdk.shiny.qmd
+          - text: "aisdk.console — terminal UI"
+            file: packages/aisdk.console.qmd
     right:
       - icon: github
         href: https://github.com/YuLab-SMU/aisdk
@@ -76,6 +78,7 @@ website:
           - packages/aisdk.channels.qmd
           - packages/aisdk.datatools.qmd
           - packages/aisdk.shiny.qmd
+          - packages/aisdk.console.qmd
   page-footer:
     left: "© 2026 Yonghe Xia · YuLab-SMU"
     right: "Built with [Quarto](https://quarto.org)."
